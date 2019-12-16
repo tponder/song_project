@@ -1,0 +1,24 @@
+[[analyzers]]
+method = "ngram-word"
+ngram = 1
+    [[analyzers.filter]]
+    type = "icu-tokenizer"
+    suppress-tags = true
+
+    [[analyzers.filter]]
+    type = "lowercase"
+
+    [[analyzers.filter]]
+    type = "list"
+    file = "config/stopwords.txt"
+
+    [[analyzers.filter]]
+    type = "alpha"
+
+    [[analyzers.filter]]
+    type = "length"
+    min = 3
+    max = 35
+
+    [[analyzers.filter]]
+    type = "porter2-filter"
